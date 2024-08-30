@@ -15,7 +15,7 @@ namespace Accounting.Migrations.Migrations
             Create.Table("Documents")
                 .WithColumn("Id").AsCustom("VARCHAR(100)").NotNullable().PrimaryKey()
                 .WithColumn("Data").AsBinary(int.MaxValue)
-                .WithColumn("Extension").AsString(10).NotNullable()
+                .WithColumn("Extension").AsCustom("VARCHAR(10)").NotNullable()
                 .WithColumn("Status").AsInt16().NotNullable()
                 .WithColumn("CreationDate").AsDateTime2().NotNullable();
         }
