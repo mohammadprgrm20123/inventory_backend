@@ -30,5 +30,14 @@ namespace Accounting.API.Controllers
 
             return await repository.GetAll(pagination);
         }
+
+        [HttpGet("{id}")]
+        public async Task<GetWarehouseByIdViewModel?> GetAll(
+            [FromServices] WarehouseReadRepository repository,
+            [FromRoute] string id)
+        {
+
+            return await repository.GetWarehouseById(id);
+        }
     }
 }

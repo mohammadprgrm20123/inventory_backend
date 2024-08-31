@@ -24,5 +24,24 @@ namespace Accounting.Persistence.EF.Warehouses
                 .Take(pagination.Limit)
                 .ToListAsync();
         }
+
+        public async Task<GetWarehouseByIdViewModel?> GetWarehouseById(string warehouseId)
+        {
+            return await context
+                .Set<Warehouse>()
+                .Where(q => q.Id == warehouseId)
+                .Select(q => new GetWarehouseByIdViewModel(
+                    q.Name,
+                    q.Code,
+                    q.Address,
+                    q.Avatar,
+                    q.StoreKeepers
+                        .Select(s => new StoreKeeperViewModel(
+                        s.Id,
+                        s.FullName,
+                        s.Phone))
+                    )
+                ).FirstOrDefaultAsync();
+        }
     }
 }
