@@ -1,9 +1,9 @@
 ﻿using Accounting.Application.Warehouses.Commands;
 using Accounting.Domain.Warehouses.Entities;
 using Accounting.Domain.Warehouses.Repositories;
-using Accounting.Domain.Warehouses.ValueObjects;
 using ErrorOr;
 using Framework.Domain;
+using Framework.Domain.Data;
 
 namespace Accounting.Application.Warehouses
 {

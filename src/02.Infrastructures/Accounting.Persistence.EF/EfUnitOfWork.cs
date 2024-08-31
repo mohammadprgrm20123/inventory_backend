@@ -1,4 +1,4 @@
-﻿using Framework.Domain;
+﻿using Framework.Domain.Data;
 
 namespace Accounting.Persistence.EF
 {
