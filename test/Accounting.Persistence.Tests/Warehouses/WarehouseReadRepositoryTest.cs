@@ -4,6 +4,7 @@ using Accounting.Domain.Warehouses.ValueObjects;
 using Accounting.TestTools.Configurations;
 using FluentAssertions;
 using Framework.Domain.Data;
+using Hangfire.Annotations;
 
 namespace Accounting.Persistence.Tests.Warehouses
 {
@@ -44,6 +45,30 @@ namespace Accounting.Persistence.Tests.Warehouses
             actualResult.First().Avatar.Should().BeEquivalentTo(warehouse.Avatar);
             actualResult.First().Phone.Should()
                 .BeEquivalentTo(warehouse.StoreKeepers.First().Phone);
+        }
+
+        [Fact]
+        public async Task GetById_ShouldReturnWarehouse_whenWarehouseIdIsValid()
+        {
+            var warehouse = new Warehouse(
+                "dummy-name",
+                "dummy-code",
+                1,
+                2,
+                "dummy-address",
+                true,
+                new Avatar("avatarId", ".jpg"));
+            warehouse.AddStoreKeeper("hassan", new Phone("0098", "09875674321"));
+            writeRepository.Add(warehouse);
+            await unitOfWork.Complete();
+
+            var actualResult = await readRepository.GetWarehouseById(warehouse.Id);
+            actualResult.Should().NotBeNull();
+            actualResult!.name.Should().Be(warehouse.Name);
+            actualResult.address.Should().Be(warehouse.Address);
+            actualResult.code.Should().Be(warehouse.Code);
+            actualResult.Avatar.Should().BeEquivalentTo(warehouse.Avatar);
+            actualResult.StoreKeepers.Should().HaveCount(1);
         }
     }
 }
