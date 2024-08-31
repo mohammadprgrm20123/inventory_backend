@@ -6,7 +6,9 @@ namespace Accounting.Domain.Warehouses.Repositories
     public interface WarehouseWriteRepository : WriteRepository
     {
         void Add(Warehouse warehouse);
-        Task<bool> AnyDefaultWarehouse();
+        Task<Warehouse?> FindWarehouse(string id);
         Task<Warehouse> FindAggregate(string id);
+        Task<Warehouse?> FindDefaultWarehouse();
+        Task<bool> AnyDefaultWarehouse();
     }
 }

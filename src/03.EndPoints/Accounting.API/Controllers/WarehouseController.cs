@@ -20,6 +20,14 @@ namespace Accounting.API.Controllers
             return await handler.Handle(command);
         }
 
+        [HttpPatch("default")]
+        public async Task<ErrorOr<string>> ChangeDefaultWarehouse(
+            [FromServices] ICommandHandler<ChangeDefaultWarehouseCommand, string> handler,
+            [FromBody] ChangeDefaultWarehouseCommand command)
+        {
+            return await handler.Handle(command);
+        }
+
         [HttpGet]
         public async Task<IEnumerable<GetAllWarehouseViewModel>> GetAll(
             [FromServices] WarehouseReadRepository repository,
@@ -32,7 +40,7 @@ namespace Accounting.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<GetWarehouseByIdViewModel?> GetAll(
+        public async Task<GetWarehouseByIdViewModel?> GetWarehouseById(
             [FromServices] WarehouseReadRepository repository,
             [FromRoute] string id)
         {
