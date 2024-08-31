@@ -5,6 +5,7 @@ using Accounting.Domain.Warehouses.ValueObjects;
 using Accounting.TestTools.Configurations;
 using FluentAssertions;
 using Framework.Domain;
+using Framework.Domain.Data;
 
 namespace Accounting.Application.Tests.Warehouses
 {

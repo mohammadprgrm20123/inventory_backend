@@ -1,6 +1,6 @@
 using Framework.Domain.Entities;
 
-namespace Framework.Domain;
+namespace Framework.Domain.Data;
 
 public interface WriteRepository
 {

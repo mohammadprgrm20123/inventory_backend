@@ -1,4 +1,4 @@
-﻿namespace Framework.Domain
+﻿namespace Framework.Domain.Data
 {
     public interface UnitOfWork
     {

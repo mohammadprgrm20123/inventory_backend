@@ -1,5 +1,5 @@
 ﻿using Accounting.Domain.Warehouses.Entities;
-using Framework.Domain;
+using Framework.Domain.Data;
 
 namespace Accounting.Domain.Warehouses.Repositories
 {

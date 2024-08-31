@@ -3,6 +3,7 @@ using Accounting.Persistence.EF;
 using Accounting.Persistence.EF.OutboxMessages;
 using Autofac;
 using Framework.Domain;
+using Framework.Domain.Data;
 using Framework.Domain.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

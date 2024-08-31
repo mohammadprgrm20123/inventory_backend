@@ -15,6 +15,16 @@ public class ApplicationReadDbContext(DbContextOptions<ApplicationReadDbContext>
                 GetType().Assembly);
     }
 
+    public override int SaveChanges()
+    {
+        throw new Exception("can not use application read db context for save data");
+    }
+
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        throw new Exception("can not use application read db context for save data");
+    }
+
     public override ChangeTracker ChangeTracker
     {
         get

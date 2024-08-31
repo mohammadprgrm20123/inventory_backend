@@ -13,27 +13,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Domain", "src\00.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Core", "01.Core", "{1ADAB3D3-0BD9-43C9-9C63-594F9AA30FB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Domain", "src\01.Core\Accounting.Domain\Accounting.Domain.csproj", "{528C2797-F14F-48B7-8F54-0494E9E7CD7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Domain", "src\01.Core\Accounting.Domain\Accounting.Domain.csproj", "{528C2797-F14F-48B7-8F54-0494E9E7CD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Application", "src\01.Core\Accounting.Application\Accounting.Application.csproj", "{0AE50D8A-BF9D-4DBE-BAFC-98E8592FBCF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Application", "src\01.Core\Accounting.Application\Accounting.Application.csproj", "{0AE50D8A-BF9D-4DBE-BAFC-98E8592FBCF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Infrastructures", "02.Infrastructures", "{AD5FA990-2F59-4A49-8224-2561B5BD1914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Infrastructures", "src\02.Infrastructures\Accounting.Infrastructures\Accounting.Infrastructures.csproj", "{2B07A16F-08CA-484A-881B-F1D7861C5C3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Infrastructures", "src\02.Infrastructures\Accounting.Infrastructures\Accounting.Infrastructures.csproj", "{2B07A16F-08CA-484A-881B-F1D7861C5C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Migrations", "src\02.Infrastructures\Accounting.Migrations\Accounting.Migrations.csproj", "{9A177E26-B07A-4EF5-BCDD-BD7468CC4C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Migrations", "src\02.Infrastructures\Accounting.Migrations\Accounting.Migrations.csproj", "{9A177E26-B07A-4EF5-BCDD-BD7468CC4C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Persistence.EF", "src\02.Infrastructures\Accounting.Persistence.EF\Accounting.Persistence.EF.csproj", "{A9798B9B-8B8E-4ED3-AED5-FCFF311F296F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Persistence.EF", "src\02.Infrastructures\Accounting.Persistence.EF\Accounting.Persistence.EF.csproj", "{A9798B9B-8B8E-4ED3-AED5-FCFF311F296F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.EndPoints", "03.EndPoints", "{5531AAF6-521B-45EF-B3DB-257091561955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Worker.Hangfire", "src\02.Infrastructures\Accounting.Worker.Hangfire\Accounting.Worker.Hangfire.csproj", "{C5944D3E-8145-4E9C-970D-2D42C3F91E85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Worker.Hangfire", "src\02.Infrastructures\Accounting.Worker.Hangfire\Accounting.Worker.Hangfire.csproj", "{C5944D3E-8145-4E9C-970D-2D42C3F91E85}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.API", "src\03.EndPoints\Accounting.API\Accounting.API.csproj", "{EA08D123-838E-4508-A7AB-14403543E665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Application.Tests", "test\Accounting.Application.Tests\Accounting.Application.Tests.csproj", "{9AF6A69D-4818-44F0-80B1-D33A3B3D80D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Application.Tests", "test\Accounting.Application.Tests\Accounting.Application.Tests.csproj", "{9AF6A69D-4818-44F0-80B1-D33A3B3D80D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.TestTools", "test\Accounting.TestTools\Accounting.TestTools.csproj", "{F43730EC-000F-417B-B57E-596C1B946BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.TestTools", "test\Accounting.TestTools\Accounting.TestTools.csproj", "{F43730EC-000F-417B-B57E-596C1B946BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Persistence.Tests", "test\Accounting.Persistence.Tests\Accounting.Persistence.Tests.csproj", "{B4F281C9-6049-4059-8709-B2E4C5695C21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{F43730EC-000F-417B-B57E-596C1B946BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F43730EC-000F-417B-B57E-596C1B946BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F43730EC-000F-417B-B57E-596C1B946BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F281C9-6049-4059-8709-B2E4C5695C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F281C9-6049-4059-8709-B2E4C5695C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F281C9-6049-4059-8709-B2E4C5695C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F281C9-6049-4059-8709-B2E4C5695C21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{EA08D123-838E-4508-A7AB-14403543E665} = {5531AAF6-521B-45EF-B3DB-257091561955}
 		{9AF6A69D-4818-44F0-80B1-D33A3B3D80D4} = {8A0D8000-010F-4121-9A56-EC2E23A820C0}
 		{F43730EC-000F-417B-B57E-596C1B946BBC} = {8A0D8000-010F-4121-9A56-EC2E23A820C0}
+		{B4F281C9-6049-4059-8709-B2E4C5695C21} = {8A0D8000-010F-4121-9A56-EC2E23A820C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C50CF47F-22AB-46D1-AD76-7E621FCDC4BF}
