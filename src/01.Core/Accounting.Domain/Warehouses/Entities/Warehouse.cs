@@ -45,5 +45,15 @@ namespace Accounting.Domain.Warehouses.Entities
             var storeKeeper = new StoreKeeper(fullName, phone);
             _storeKeepers.Add(storeKeeper);
         }
+
+        public void RemoveAsDefaultWarehouse()
+        {
+            IsDefault = false;
+        }
+
+        public void SetAsDefaultWarehouse()
+        {
+            IsDefault = true;
+        }
     }
 }

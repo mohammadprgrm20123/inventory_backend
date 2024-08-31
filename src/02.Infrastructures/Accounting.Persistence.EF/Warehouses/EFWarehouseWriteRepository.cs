@@ -16,6 +16,20 @@ namespace Accounting.Persistence.EF.Warehouses
             RaiseEvent(warehouse);
         }
 
+        public async Task<Warehouse?> FindWarehouse(string id)
+        {
+            return await context
+                .Set<Warehouse>()
+                .FirstOrDefaultAsync(q => q.Id == id);
+        }
+
+        public async Task<Warehouse?> FindDefaultWarehouse()
+        {
+            return await context
+                .Set<Warehouse>()
+                .FirstOrDefaultAsync(q => q.IsDefault == true);
+        }
+
         public async Task<bool> AnyDefaultWarehouse()
         {
             return await context
