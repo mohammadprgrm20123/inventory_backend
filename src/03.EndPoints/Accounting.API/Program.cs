@@ -18,6 +18,7 @@ var connectionString =
         .Configuration
         .GetValue<string>("connectionString");
 
+Accounting.Migrations.WebApiMigration.Main(connectionString);
 builder
     .Services
     .RegisterMessageDispatcher()
@@ -45,6 +46,13 @@ builder
             .RegisterMessageHandler();
     });
 
+builder
+    .WebHost
+    .UseUrls(
+        "http://0.0.0.0",
+        builder.Configuration.GetValue<string>("url")
+        );
+
 var app = builder.Build();
 
 
@@ -57,6 +65,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseHangfire();
+
+app.UseCors(cors =>
+{
+    cors.AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+});
 
 app.MapIdentityApi<IdentityUser>();
 

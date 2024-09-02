@@ -1,0 +1,8 @@
+{
+    "platform": "netcore",
+    "netcore": {
+      "version": "8.0",
+      "finalDllName": "Accounting.API",
+      "csprojectFile": "src/03.EndPoints/Accounting.API/Accounting.API.csproj"
+    }
+}
