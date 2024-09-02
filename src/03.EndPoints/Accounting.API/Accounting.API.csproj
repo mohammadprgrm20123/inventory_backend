@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\02.Infrastructures\Accounting.Infrastructures\Accounting.Infrastructures.csproj" />
+    <ProjectReference Include="..\..\02.Infrastructures\Accounting.Migrations\Accounting.Migrations.csproj" />
   </ItemGroup>
 
   <ItemGroup>
