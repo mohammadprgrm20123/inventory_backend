@@ -19,8 +19,8 @@ namespace Accounting.Application.Warehouses
             var warehouse = new Warehouse(
                 command.Name,
                 code,
-                command.ProvinceId,
-                command.CityId,
+                command.ProvinceName,
+                command.CityName,
                 command.Address,
                 !anyWarehouse,
                 command.Avatar);

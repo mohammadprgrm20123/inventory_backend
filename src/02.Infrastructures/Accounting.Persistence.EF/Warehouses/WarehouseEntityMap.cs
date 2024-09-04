@@ -11,8 +11,8 @@ namespace Accounting.Persistence.EF.Warehouses
             builder.ToTable("Warehouses");
             builder.HasKey(q => q.Id);
             builder.Property(q => q.Address).IsRequired();
-            builder.Property(q => q.ProvinceId).IsRequired();
-            builder.Property(q => q.CityId).IsRequired();
+            builder.Property(q => q.ProvinceName).IsRequired();
+            builder.Property(q => q.CityName).IsRequired();
             builder.Property(q => q.Code).IsRequired();
             builder.Property(q => q.Name).IsRequired();
 

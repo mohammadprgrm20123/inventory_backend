@@ -23,12 +23,13 @@ namespace Accounting.Application.Tests.Warehouses
         }
 
         [Fact]
-        public async Task ShouldAddWarehouseWithIsDefaultValueTrue_WhenDoesNotExistAnotherWarehouse()
+        public async Task
+            ShouldAddWarehouseWithIsDefaultValueTrue_WhenDoesNotExistAnotherWarehouse()
         {
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                1,
-                2,
+                "dummy-province",
+                "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
                 new());
@@ -39,23 +40,25 @@ namespace Accounting.Application.Tests.Warehouses
                 .FindAggregate(handlerResult.Value);
             actualResult.Name.Should().Be(command.Name);
             actualResult.Address.Should().Be(command.Address);
-            actualResult.CityId.Should().Be(command.CityId);
-            actualResult.ProvinceId.Should().Be(command.ProvinceId);
+            actualResult.CityName.Should().Be(command.CityName);
+            actualResult.ProvinceName.Should().Be(command.ProvinceName);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeTrue();
             actualResult.Avatar.Should().NotBeNull();
             actualResult.Avatar!.Id.Should().Be(command.Avatar.Id);
-            actualResult.Avatar.Extension.Should().Be(command.Avatar.Extension);
+            actualResult.Avatar.Extension.Should()
+                .Be(command.Avatar.Extension);
         }
 
         [Fact]
-        public async Task ShouldAddWarehouseWithIsDefaultValueFalse_WhenExistAnotherWarehouse()
+        public async Task
+            ShouldAddWarehouseWithIsDefaultValueFalse_WhenExistAnotherWarehouse()
         {
             var warehouse = new Warehouse(
                 "dummy",
                 "dummy",
-                1,
-                2,
+                "dummy-province",
+                "dummy-city",
                 "dummy",
                 true,
                 null);
@@ -63,8 +66,8 @@ namespace Accounting.Application.Tests.Warehouses
             await unitOfWork.Complete();
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                1,
-                2,
+                "dummy-province",
+                "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
                 new());
@@ -75,13 +78,14 @@ namespace Accounting.Application.Tests.Warehouses
                 .FindAggregate(handlerResult.Value);
             actualResult.Name.Should().Be(command.Name);
             actualResult.Address.Should().Be(command.Address);
-            actualResult.CityId.Should().Be(command.CityId);
-            actualResult.ProvinceId.Should().Be(command.ProvinceId);
+            actualResult.CityName.Should().Be(command.CityName);
+            actualResult.ProvinceName.Should().Be(command.ProvinceName);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeFalse();
             actualResult.Avatar.Should().NotBeNull();
             actualResult.Avatar!.Id.Should().Be(command.Avatar!.Id);
-            actualResult.Avatar.Extension.Should().Be(command.Avatar.Extension);
+            actualResult.Avatar.Extension.Should()
+                .Be(command.Avatar.Extension);
         }
 
         [Fact]
@@ -89,11 +93,14 @@ namespace Accounting.Application.Tests.Warehouses
         {
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                1,
-                2,
+                "dummy-province",
+                "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
-                new() { new("Hassan Rezaei", new Phone("0098", "0987123452")) });
+                new()
+                {
+                    new("Hassan Rezaei", new Phone("0098", "0987123452"))
+                });
 
             var handlerResult = await _handler
                 .Handle(command);
@@ -101,7 +108,8 @@ namespace Accounting.Application.Tests.Warehouses
             var actualResult = await repository
                 .FindAggregate(handlerResult.Value);
             actualResult.StoreKeepers.Should().HaveCount(1);
-            actualResult.StoreKeepers.First().FullName.Should().Be(command.StoreKeepers.First().FullName);
+            actualResult.StoreKeepers.First().FullName.Should()
+                .Be(command.StoreKeepers.First().FullName);
             actualResult.StoreKeepers.First().Phone.Should()
                 .BeEquivalentTo(command.StoreKeepers.First().Phone);
         }

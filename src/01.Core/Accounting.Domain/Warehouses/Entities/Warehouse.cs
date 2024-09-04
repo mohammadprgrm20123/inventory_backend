@@ -8,8 +8,8 @@ namespace Accounting.Domain.Warehouses.Entities
         public string Id { get; private set; }
         public string Name { get; private set; }
         public string Code { get; private set; }
-        public int ProvinceId { get; private set; }
-        public int CityId { get; private set; }
+        public string ProvinceName { get; private set; }
+        public string CityName { get; private set; }
         public string Address { get; private set; }
         public bool IsDefault { get; private set; }
         public Avatar? Avatar { get; private set; }
@@ -24,8 +24,8 @@ namespace Accounting.Domain.Warehouses.Entities
         public Warehouse(
             string name,
             string code,
-            int provinceId,
-            int cityId,
+            string provinceName,
+            string cityName,
             string address,
             bool isDefault,
             Avatar? avatar)
@@ -33,8 +33,8 @@ namespace Accounting.Domain.Warehouses.Entities
             Id = Guid.NewGuid().ToString();
             Name = name;
             Code = code;
-            ProvinceId = provinceId;
-            CityId = cityId;
+            ProvinceName = provinceName;
+            CityName = cityName;
             Address = address;
             IsDefault = isDefault;
             Avatar = avatar;

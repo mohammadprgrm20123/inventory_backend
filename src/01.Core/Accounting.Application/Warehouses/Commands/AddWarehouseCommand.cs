@@ -4,8 +4,8 @@ namespace Accounting.Application.Warehouses.Commands
 {
     public record AddWarehouseCommand(
         string Name,
-        int ProvinceId,
-        int CityId,
+        string ProvinceName,
+        string CityName,
         string Address,
         Avatar? Avatar,
         List<AddStoreKeeperDto> StoreKeepers);
