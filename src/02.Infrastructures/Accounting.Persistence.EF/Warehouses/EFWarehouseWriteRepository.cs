@@ -16,6 +16,11 @@ namespace Accounting.Persistence.EF.Warehouses
             RaiseEvent(warehouse);
         }
 
+        public void Update(Warehouse warehouse)
+        {
+            RaiseEvent(warehouse);
+        }
+
         public async Task<Warehouse?> FindWarehouse(string id)
         {
             return await context

@@ -8,7 +8,5 @@ namespace Accounting.Application.Warehouses.Commands
         string CityName,
         string Address,
         Avatar? Avatar,
-        List<AddStoreKeeperDto> StoreKeepers);
-
-    public record AddStoreKeeperDto(string FullName, Phone Phone);
+        IEnumerable<StoreKeeperDto> StoreKeepers);
 }

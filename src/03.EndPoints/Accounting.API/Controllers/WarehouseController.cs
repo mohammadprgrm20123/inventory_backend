@@ -14,7 +14,8 @@ namespace Accounting.API.Controllers
     {
         [HttpPost]
         public async Task<ErrorOr<string>> AddWarehouse(
-            [FromServices] ICommandHandler<AddWarehouseCommand, string> handler,
+            [FromServices]
+            ICommandHandler<AddWarehouseCommand, string> handler,
             [FromBody] AddWarehouseCommand command)
         {
             return await handler.Handle(command);
@@ -22,8 +23,18 @@ namespace Accounting.API.Controllers
 
         [HttpPatch("default")]
         public async Task<ErrorOr<string>> ChangeDefaultWarehouse(
-            [FromServices] ICommandHandler<ChangeDefaultWarehouseCommand, string> handler,
+            [FromServices]
+            ICommandHandler<ChangeDefaultWarehouseCommand, string> handler,
             [FromBody] ChangeDefaultWarehouseCommand command)
+        {
+            return await handler.Handle(command);
+        }
+
+        [HttpPut]
+        public async Task<ErrorOr<string>> Edit(
+            [FromServices]
+            ICommandHandler<EditWarehouseCommand, string> handler,
+            [FromBody] EditWarehouseCommand command)
         {
             return await handler.Handle(command);
         }
@@ -44,7 +55,6 @@ namespace Accounting.API.Controllers
             [FromServices] WarehouseReadRepository repository,
             [FromRoute] string id)
         {
-
             return await repository.GetWarehouseById(id);
         }
     }

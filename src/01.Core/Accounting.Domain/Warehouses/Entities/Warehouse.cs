@@ -14,7 +14,7 @@ namespace Accounting.Domain.Warehouses.Entities
         public bool IsDefault { get; private set; }
         public Avatar? Avatar { get; private set; }
 
-        private readonly HashSet<StoreKeeper> _storeKeepers = new();
+        private HashSet<StoreKeeper> _storeKeepers = new();
         public IReadOnlyCollection<StoreKeeper> StoreKeepers => _storeKeepers;
 
         private Warehouse()
@@ -54,6 +54,25 @@ namespace Accounting.Domain.Warehouses.Entities
         public void SetAsDefaultWarehouse()
         {
             IsDefault = true;
+        }
+
+        public void Edit(
+            string name,
+            string address,
+            string provinceName,
+            string cityName,
+            Avatar? avatar)
+        {
+            Name = name;
+            Address = address;
+            ProvinceName = provinceName;
+            CityName = cityName;
+            Avatar = avatar;
+        }
+
+        public void RemoveAllStoreKeeper()
+        {
+            _storeKeepers = new();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Accounting.Application.Tests.Warehouses
                 "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
-                new());
+                new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
 
@@ -70,7 +70,7 @@ namespace Accounting.Application.Tests.Warehouses
                 "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
-                new());
+                new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
 
@@ -97,7 +97,7 @@ namespace Accounting.Application.Tests.Warehouses
                 "dummy-city",
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
-                new()
+                new List<StoreKeeperDto>
                 {
                     new("Hassan Rezaei", new Phone("0098", "0987123452"))
                 });
