@@ -28,8 +28,8 @@ namespace Accounting.Application.Tests.Warehouses
         {
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
                 new List<StoreKeeperDto>());
@@ -40,8 +40,8 @@ namespace Accounting.Application.Tests.Warehouses
                 .FindAggregate(handlerResult.Value);
             actualResult.Name.Should().Be(command.Name);
             actualResult.Address.Should().Be(command.Address);
-            actualResult.CityName.Should().Be(command.CityName);
-            actualResult.ProvinceName.Should().Be(command.ProvinceName);
+            actualResult.CityId.Should().Be(command.CityId);
+            actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeTrue();
             actualResult.Avatar.Should().NotBeNull();
@@ -57,8 +57,8 @@ namespace Accounting.Application.Tests.Warehouses
             var warehouse = new Warehouse(
                 "dummy",
                 "dummy",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy",
                 true,
                 null);
@@ -66,8 +66,8 @@ namespace Accounting.Application.Tests.Warehouses
             await unitOfWork.Complete();
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
                 new List<StoreKeeperDto>());
@@ -78,8 +78,8 @@ namespace Accounting.Application.Tests.Warehouses
                 .FindAggregate(handlerResult.Value);
             actualResult.Name.Should().Be(command.Name);
             actualResult.Address.Should().Be(command.Address);
-            actualResult.CityName.Should().Be(command.CityName);
-            actualResult.ProvinceName.Should().Be(command.ProvinceName);
+            actualResult.CityId.Should().Be(command.CityId);
+            actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeFalse();
             actualResult.Avatar.Should().NotBeNull();
@@ -93,8 +93,8 @@ namespace Accounting.Application.Tests.Warehouses
         {
             var command = new AddWarehouseCommand(
                 "dummy-name",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 new Avatar("dummy-id", ".jpg"),
                 new List<StoreKeeperDto>

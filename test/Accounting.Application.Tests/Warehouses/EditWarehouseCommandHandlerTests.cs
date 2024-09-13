@@ -31,8 +31,8 @@ public class EditWarehouseCommandHandlerTests : TestConfig
         var warehouse = new Warehouse(
             "dummy_name",
             "dummy_code",
-            "province_name",
-            "city-name",
+            1,
+            2,
             "dummy-address",
             true,
             new());
@@ -41,8 +41,8 @@ public class EditWarehouseCommandHandlerTests : TestConfig
         var command = new EditWarehouseCommand(
             warehouse.Id,
             "name-edited",
-            "province-edited",
-            "city-edited",
+            3,
+            4,
             "address-edited",
             new(),
             new List<StoreKeeperDto>());
@@ -62,8 +62,8 @@ public class EditWarehouseCommandHandlerTests : TestConfig
         var warehouse = new Warehouse(
             "dummy_name",
             "dummy_code",
-            "province_name",
-            "city-name",
+            1,
+            2,
             "dummy-address",
             true,
             new());
@@ -73,8 +73,8 @@ public class EditWarehouseCommandHandlerTests : TestConfig
         var command = new EditWarehouseCommand(
             warehouse.Id,
             "name-edited",
-            "province-edited",
-            "city-edited",
+            3,
+            4,
             "address-edited",
             new(),
             new List<StoreKeeperDto>
@@ -93,13 +93,13 @@ public class EditWarehouseCommandHandlerTests : TestConfig
     }
 
     [Fact]
-    public async Task prevent_properly()
+    public async Task PreventEditWarehouse_WhenWarehouseNotFound()
     {
         var command = new EditWarehouseCommand(
             Guid.NewGuid().ToString(),
             "name-edited",
-            "province-edited",
-            "city-edited",
+            1,
+            2,
             "address-edited",
             new(),
             new List<StoreKeeperDto>());

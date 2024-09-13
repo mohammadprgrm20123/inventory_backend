@@ -14,7 +14,7 @@ public class EditWarehouseCommandHandler(
     public async Task<ErrorOr<string>> Handle(EditWarehouseCommand command)
     {
         var warehouse = await repository
-            .FindAggregate(command.WarehouseId);
+            .FindWithStoreKeepers(command.WarehouseId);
 
         if (warehouse is null)
             return Error.NotFound("500", "انبار پیدا نشد");
@@ -22,8 +22,8 @@ public class EditWarehouseCommandHandler(
         warehouse.Edit(
             command.Name,
             command.Address,
-            command.ProvinceName,
-            command.CityName,
+            command.ProvinceId,
+            command.CityId,
             command.Avatar);
 
         warehouse.RemoveAllStoreKeeper();

@@ -29,8 +29,8 @@ namespace Accounting.Application.Tests.Warehouses
             var firstWarehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 true,
                 null);
@@ -38,8 +38,8 @@ namespace Accounting.Application.Tests.Warehouses
             var secondWarehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                3,
+                4,
                 "dummy-address",
                 false,
                 null);
@@ -60,8 +60,8 @@ namespace Accounting.Application.Tests.Warehouses
             var firstWarehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                5,
+                6,
                 "dummy-address",
                 true,
                 null);
@@ -69,8 +69,8 @@ namespace Accounting.Application.Tests.Warehouses
             var secondWarehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                7,
+                8,
                 "dummy-address",
                 false,
                 null);
@@ -91,8 +91,8 @@ namespace Accounting.Application.Tests.Warehouses
             var firstWarehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                7,
+                6,
                 "dummy-address",
                 true,
                 null);

@@ -27,8 +27,8 @@ namespace Accounting.Persistence.Tests.Warehouses
             var warehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 true,
                 new Avatar("avatarId", ".jpg"));
@@ -53,8 +53,8 @@ namespace Accounting.Persistence.Tests.Warehouses
             var warehouse = new Warehouse(
                 "dummy-name",
                 "dummy-code",
-                "dummy-province",
-                "dummy-city",
+                1,
+                2,
                 "dummy-address",
                 true,
                 new Avatar("avatarId", ".jpg"));
