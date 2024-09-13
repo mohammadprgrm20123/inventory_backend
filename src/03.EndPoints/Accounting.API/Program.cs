@@ -27,7 +27,6 @@ var connectionString =
         .Configuration
         .GetValue<string>("connectionString");
 
-Accounting.Migrations.WebApiMigration.Main(connectionString);
 builder
     .Services
     .RegisterMessageDispatcher()
