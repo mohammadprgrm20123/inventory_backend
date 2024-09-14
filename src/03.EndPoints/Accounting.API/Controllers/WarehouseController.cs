@@ -13,30 +13,42 @@ namespace Accounting.API.Controllers
     public class WarehouseController : ControllerBase
     {
         [HttpPost]
-        public async Task<ErrorOr<string>> AddWarehouse(
+        public async Task<IActionResult> AddWarehouse(
             [FromServices]
             ICommandHandler<AddWarehouseCommand, string> handler,
             [FromBody] AddWarehouseCommand command)
         {
-            return await handler.Handle(command);
+            var result = await handler.Handle(command);
+
+            return result.Match<IActionResult>(
+                s => Ok(result.Value),
+                e => BadRequest(result.FirstError.Description));
         }
 
         [HttpPatch("default")]
-        public async Task<ErrorOr<string>> ChangeDefaultWarehouse(
+        public async Task<IActionResult> ChangeDefaultWarehouse(
             [FromServices]
             ICommandHandler<ChangeDefaultWarehouseCommand, string> handler,
             [FromBody] ChangeDefaultWarehouseCommand command)
         {
-            return await handler.Handle(command);
+            var result = await handler.Handle(command);
+
+            return result.Match<IActionResult>(
+                s => Ok(result.Value),
+                e => BadRequest(result.FirstError.Description));
         }
 
         [HttpPut]
-        public async Task<ErrorOr<string>> Edit(
+        public async Task<IActionResult> Edit(
             [FromServices]
             ICommandHandler<EditWarehouseCommand, string> handler,
             [FromBody] EditWarehouseCommand command)
         {
-            return await handler.Handle(command);
+            var result = await handler.Handle(command);
+
+            return result.Match<IActionResult>(
+                s => Ok(result.Value),
+                e => BadRequest(result.FirstError.Description));
         }
 
         [HttpGet]

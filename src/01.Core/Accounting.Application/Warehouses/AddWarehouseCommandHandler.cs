@@ -23,7 +23,7 @@ namespace Accounting.Application.Warehouses
                 command.CityId,
                 command.Address,
                 !anyWarehouse,
-                command.Avatar);
+                command.ImageId);
 
             foreach (var storeKeeper in command.StoreKeepers)
             {

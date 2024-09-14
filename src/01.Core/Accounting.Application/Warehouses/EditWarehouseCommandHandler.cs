@@ -24,7 +24,7 @@ public class EditWarehouseCommandHandler(
             command.Address,
             command.ProvinceId,
             command.CityId,
-            command.Avatar);
+            command.ImageId);
 
         warehouse.RemoveAllStoreKeeper();
 

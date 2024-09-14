@@ -31,7 +31,7 @@ namespace Accounting.Application.Tests.Warehouses
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
+                Guid.NewGuid().ToString(),
                 new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
@@ -44,10 +44,7 @@ namespace Accounting.Application.Tests.Warehouses
             actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeTrue();
-            actualResult.Avatar.Should().NotBeNull();
-            actualResult.Avatar!.Id.Should().Be(command.Avatar.Id);
-            actualResult.Avatar.Extension.Should()
-                .Be(command.Avatar.Extension);
+            actualResult.ImageId.Should().Be(command.ImageId);
         }
 
         [Fact]
@@ -69,7 +66,7 @@ namespace Accounting.Application.Tests.Warehouses
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
+                Guid.NewGuid().ToString(),
                 new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
@@ -82,10 +79,7 @@ namespace Accounting.Application.Tests.Warehouses
             actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeFalse();
-            actualResult.Avatar.Should().NotBeNull();
-            actualResult.Avatar!.Id.Should().Be(command.Avatar!.Id);
-            actualResult.Avatar.Extension.Should()
-                .Be(command.Avatar.Extension);
+            actualResult.ImageId.Should().Be(command.ImageId);
         }
 
         [Fact]
@@ -96,7 +90,7 @@ namespace Accounting.Application.Tests.Warehouses
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
+                Guid.NewGuid().ToString(),
                 new List<StoreKeeperDto>
                 {
                     new("Hassan Rezaei", new Phone("0098", "0987123452"))

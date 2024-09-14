@@ -18,7 +18,7 @@ namespace Accounting.Persistence.EF.Warehouses
                     q.IsDefault,
                     q.Address,
                     q.StoreKeepers.Any() ? q.StoreKeepers.FirstOrDefault()!.Phone : null,
-                    q.Avatar
+                    q.ImageId
                 ))
                 .Skip((pagination.Offset - 1) * pagination.Limit)
                 .Take(pagination.Limit)
@@ -34,7 +34,7 @@ namespace Accounting.Persistence.EF.Warehouses
                     q.Name,
                     q.Code,
                     q.Address,
-                    q.Avatar,
+                    q.ImageId,
                     q.StoreKeepers
                         .Select(s => new StoreKeeperViewModel(
                         s.Id,

@@ -12,7 +12,7 @@ namespace Accounting.Domain.Warehouses.Entities
         public int CityId { get; private set; }
         public string Address { get; private set; }
         public bool IsDefault { get; private set; }
-        public Avatar? Avatar { get; private set; }
+        public string? ImageId { get; private set; }
 
         private HashSet<StoreKeeper> _storeKeepers = new();
         public IReadOnlyCollection<StoreKeeper> StoreKeepers => _storeKeepers;
@@ -28,7 +28,7 @@ namespace Accounting.Domain.Warehouses.Entities
             int cityId,
             string address,
             bool isDefault,
-            Avatar? avatar)
+            string imageId)
         {
             Id = Guid.NewGuid().ToString();
             Name = name;
@@ -37,7 +37,7 @@ namespace Accounting.Domain.Warehouses.Entities
             CityId = cityId;
             Address = address;
             IsDefault = isDefault;
-            Avatar = avatar;
+            ImageId = imageId;
         }
 
         public void AddStoreKeeper(string fullName, Phone phone)
@@ -61,13 +61,13 @@ namespace Accounting.Domain.Warehouses.Entities
             string address,
             int provinceName,
             int cityName,
-            Avatar? avatar)
+            string? imageId)
         {
             Name = name;
             Address = address;
             ProvinceId = provinceName;
             CityId = cityName;
-            Avatar = avatar;
+            ImageId = imageId;
         }
 
         public void RemoveAllStoreKeeper()

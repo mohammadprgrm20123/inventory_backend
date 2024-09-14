@@ -7,6 +7,6 @@ namespace Accounting.Application.Warehouses.Commands
         int ProvinceId,
         int CityId,
         string Address,
-        Avatar? Avatar,
+        string? ImageId,
         IEnumerable<StoreKeeperDto> StoreKeepers);
 }

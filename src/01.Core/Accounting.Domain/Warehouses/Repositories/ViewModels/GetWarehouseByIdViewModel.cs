@@ -6,6 +6,6 @@ namespace Accounting.Domain.Warehouses.Repositories.ViewModels
         string name,
         string code,
         string address,
-        Avatar? Avatar,
+        string? imageId,
         IEnumerable<StoreKeeperViewModel> StoreKeepers);
 }

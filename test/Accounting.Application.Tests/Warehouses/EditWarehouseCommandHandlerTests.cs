@@ -35,7 +35,7 @@ public class EditWarehouseCommandHandlerTests : TestConfig
             2,
             "dummy-address",
             true,
-            new());
+            Guid.NewGuid().ToString());
         warehouseWriteRepository.Add(warehouse);
         await unitOfWork.Complete();
         var command = new EditWarehouseCommand(
@@ -44,7 +44,7 @@ public class EditWarehouseCommandHandlerTests : TestConfig
             3,
             4,
             "address-edited",
-            new(),
+            Guid.NewGuid().ToString(),
             new List<StoreKeeperDto>());
 
         await handler.Handle(command);
@@ -66,7 +66,7 @@ public class EditWarehouseCommandHandlerTests : TestConfig
             2,
             "dummy-address",
             true,
-            new());
+            Guid.NewGuid().ToString());
         warehouse.AddStoreKeeper("hassan", new("0098", "9016785432"));
         warehouseWriteRepository.Add(warehouse);
         await unitOfWork.Complete();
@@ -76,7 +76,7 @@ public class EditWarehouseCommandHandlerTests : TestConfig
             3,
             4,
             "address-edited",
-            new(),
+            Guid.NewGuid().ToString(),
             new List<StoreKeeperDto>
                 { new("ali", new Phone("0098", "09179875643")) }
         );
@@ -101,7 +101,7 @@ public class EditWarehouseCommandHandlerTests : TestConfig
             1,
             2,
             "address-edited",
-            new(),
+            Guid.NewGuid().ToString(),
             new List<StoreKeeperDto>());
 
         var actualResult = await handler.Handle(command);
