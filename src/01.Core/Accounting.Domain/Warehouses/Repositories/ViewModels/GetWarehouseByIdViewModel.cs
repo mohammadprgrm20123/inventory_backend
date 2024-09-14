@@ -3,9 +3,11 @@
 namespace Accounting.Domain.Warehouses.Repositories.ViewModels
 {
     public record GetWarehouseByIdViewModel(
-        string name,
-        string code,
-        string address,
-        string? imageId,
+        string Name,
+        string Code,
+        string Address,
+        int ProvinceId,
+        int CityId,
+        string? ImageId,
         IEnumerable<StoreKeeperViewModel> StoreKeepers);
 }
