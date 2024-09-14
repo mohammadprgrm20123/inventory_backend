@@ -51,9 +51,9 @@ public class EditWarehouseCommandHandlerTests : TestConfig
 
         var actualResult = await warehouseReadRepository
             .GetWarehouseById(warehouse.Id);
-        actualResult!.name.Should().Be(command.Name);
-        actualResult.address.Should().Be(command.Address);
-        actualResult.code.Should().Be(warehouse.Code);
+        actualResult!.Name.Should().Be(command.Name);
+        actualResult.Address.Should().Be(command.Address);
+        actualResult.Code.Should().Be(warehouse.Code);
     }
 
     [Fact]

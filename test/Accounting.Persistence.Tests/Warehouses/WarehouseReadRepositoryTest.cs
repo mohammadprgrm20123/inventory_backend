@@ -62,10 +62,12 @@ namespace Accounting.Persistence.Tests.Warehouses
 
             var actualResult = await readRepository.GetWarehouseById(warehouse.Id);
             actualResult.Should().NotBeNull();
-            actualResult!.name.Should().Be(warehouse.Name);
-            actualResult.address.Should().Be(warehouse.Address);
-            actualResult.code.Should().Be(warehouse.Code);
-            actualResult.imageId.Should().BeEquivalentTo(warehouse.ImageId);
+            actualResult!.Name.Should().Be(warehouse.Name);
+            actualResult.Address.Should().Be(warehouse.Address);
+            actualResult.Code.Should().Be(warehouse.Code);
+            actualResult.ImageId.Should().BeEquivalentTo(warehouse.ImageId);
+            actualResult.CityId.Should().Be(warehouse.CityId);
+            actualResult.ProvinceId.Should().Be(warehouse.ProvinceId);
             actualResult.StoreKeepers.Should().HaveCount(1);
         }
     }
