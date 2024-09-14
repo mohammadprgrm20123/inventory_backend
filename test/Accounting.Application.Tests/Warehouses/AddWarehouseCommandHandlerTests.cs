@@ -23,15 +23,16 @@ namespace Accounting.Application.Tests.Warehouses
         }
 
         [Fact]
-        public async Task ShouldAddWarehouseWithIsDefaultValueTrue_WhenDoesNotExistAnotherWarehouse()
+        public async Task
+            ShouldAddWarehouseWithIsDefaultValueTrue_WhenDoesNotExistAnotherWarehouse()
         {
             var command = new AddWarehouseCommand(
                 "dummy-name",
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
-                new());
+                Guid.NewGuid().ToString(),
+                new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
 
@@ -43,13 +44,12 @@ namespace Accounting.Application.Tests.Warehouses
             actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeTrue();
-            actualResult.Avatar.Should().NotBeNull();
-            actualResult.Avatar!.Id.Should().Be(command.Avatar.Id);
-            actualResult.Avatar.Extension.Should().Be(command.Avatar.Extension);
+            actualResult.ImageId.Should().Be(command.ImageId);
         }
 
         [Fact]
-        public async Task ShouldAddWarehouseWithIsDefaultValueFalse_WhenExistAnotherWarehouse()
+        public async Task
+            ShouldAddWarehouseWithIsDefaultValueFalse_WhenExistAnotherWarehouse()
         {
             var warehouse = new Warehouse(
                 "dummy",
@@ -66,8 +66,8 @@ namespace Accounting.Application.Tests.Warehouses
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
-                new());
+                Guid.NewGuid().ToString(),
+                new List<StoreKeeperDto>());
 
             var handlerResult = await _handler.Handle(command);
 
@@ -79,9 +79,7 @@ namespace Accounting.Application.Tests.Warehouses
             actualResult.ProvinceId.Should().Be(command.ProvinceId);
             actualResult.Code.Should().NotBeNull();
             actualResult.IsDefault.Should().BeFalse();
-            actualResult.Avatar.Should().NotBeNull();
-            actualResult.Avatar!.Id.Should().Be(command.Avatar!.Id);
-            actualResult.Avatar.Extension.Should().Be(command.Avatar.Extension);
+            actualResult.ImageId.Should().Be(command.ImageId);
         }
 
         [Fact]
@@ -92,8 +90,11 @@ namespace Accounting.Application.Tests.Warehouses
                 1,
                 2,
                 "dummy-address",
-                new Avatar("dummy-id", ".jpg"),
-                new() { new("Hassan Rezaei", new Phone("0098", "0987123452")) });
+                Guid.NewGuid().ToString(),
+                new List<StoreKeeperDto>
+                {
+                    new("Hassan Rezaei", new Phone("0098", "0987123452"))
+                });
 
             var handlerResult = await _handler
                 .Handle(command);
@@ -101,7 +102,8 @@ namespace Accounting.Application.Tests.Warehouses
             var actualResult = await repository
                 .FindAggregate(handlerResult.Value);
             actualResult.StoreKeepers.Should().HaveCount(1);
-            actualResult.StoreKeepers.First().FullName.Should().Be(command.StoreKeepers.First().FullName);
+            actualResult.StoreKeepers.First().FullName.Should()
+                .Be(command.StoreKeepers.First().FullName);
             actualResult.StoreKeepers.First().Phone.Should()
                 .BeEquivalentTo(command.StoreKeepers.First().Phone);
         }

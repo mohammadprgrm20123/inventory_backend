@@ -31,7 +31,7 @@ namespace Accounting.Persistence.Tests.Warehouses
                 2,
                 "dummy-address",
                 true,
-                new Avatar("avatarId", ".jpg"));
+                Guid.NewGuid().ToString());
             warehouse.AddStoreKeeper("hassan", new Phone("0098", "09875674321"));
             writeRepository.Add(warehouse);
             await unitOfWork.Complete();
@@ -42,9 +42,7 @@ namespace Accounting.Persistence.Tests.Warehouses
             actualResult.First().Id.Should().Be(warehouse.Id);
             actualResult.First().Name.Should().Be(warehouse.Name);
             actualResult.First().Address.Should().Be(warehouse.Address);
-            actualResult.First().Avatar.Should().BeEquivalentTo(warehouse.Avatar);
-            actualResult.First().Phone.Should()
-                .BeEquivalentTo(warehouse.StoreKeepers.First().Phone);
+            actualResult.First().ImageId.Should().Be(warehouse.ImageId);
         }
 
         [Fact]
@@ -57,17 +55,19 @@ namespace Accounting.Persistence.Tests.Warehouses
                 2,
                 "dummy-address",
                 true,
-                new Avatar("avatarId", ".jpg"));
+                Guid.NewGuid().ToString());
             warehouse.AddStoreKeeper("hassan", new Phone("0098", "09875674321"));
             writeRepository.Add(warehouse);
             await unitOfWork.Complete();
 
             var actualResult = await readRepository.GetWarehouseById(warehouse.Id);
             actualResult.Should().NotBeNull();
-            actualResult!.name.Should().Be(warehouse.Name);
-            actualResult.address.Should().Be(warehouse.Address);
-            actualResult.code.Should().Be(warehouse.Code);
-            actualResult.Avatar.Should().BeEquivalentTo(warehouse.Avatar);
+            actualResult!.Name.Should().Be(warehouse.Name);
+            actualResult.Address.Should().Be(warehouse.Address);
+            actualResult.Code.Should().Be(warehouse.Code);
+            actualResult.ImageId.Should().BeEquivalentTo(warehouse.ImageId);
+            actualResult.CityId.Should().Be(warehouse.CityId);
+            actualResult.ProvinceId.Should().Be(warehouse.ProvinceId);
             actualResult.StoreKeepers.Should().HaveCount(1);
         }
     }

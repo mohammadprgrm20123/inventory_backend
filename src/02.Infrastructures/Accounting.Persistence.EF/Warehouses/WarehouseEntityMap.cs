@@ -10,17 +10,12 @@ namespace Accounting.Persistence.EF.Warehouses
         {
             builder.ToTable("Warehouses");
             builder.HasKey(q => q.Id);
+            builder.Property(q => q.ImageId).IsRequired(false);
             builder.Property(q => q.Address).IsRequired();
             builder.Property(q => q.ProvinceId).IsRequired();
             builder.Property(q => q.CityId).IsRequired();
             builder.Property(q => q.Code).IsRequired();
             builder.Property(q => q.Name).IsRequired();
-
-            builder.OwnsOne(q => q.Avatar, p =>
-            {
-                p.Property(v => v.Id).IsRequired(false).HasColumnName("AvatarId");
-                p.Property(v => v.Extension).IsRequired(false).HasColumnName("AvatarExtension");
-            });
         }
     }
 

@@ -8,5 +8,5 @@ namespace Accounting.Domain.Warehouses.Repositories.ViewModels
         bool IsDefault,
         string Address,
         Phone? Phone,
-        Avatar? Avatar);
+        string? ImageId);
 }

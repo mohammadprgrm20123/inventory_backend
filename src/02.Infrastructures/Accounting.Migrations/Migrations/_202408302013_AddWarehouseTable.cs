@@ -15,8 +15,7 @@ namespace Accounting.Migrations.Migrations
                 .WithColumn("ProvinceId").AsInt32().NotNullable()
                 .WithColumn("CityId").AsInt32().NotNullable()
                 .WithColumn("Address").AsString(1000).NotNullable()
-                .WithColumn("AvatarId").AsCustom("VARCHAR(100)").Nullable()
-                .WithColumn("AvatarExtension").AsCustom("VARCHAR(10)").Nullable()
+                .WithColumn("ImageId").AsCustom("VARCHAR(100)").Nullable()
                 .WithColumn("IsDefault").AsBoolean().NotNullable();
 
             Create.Table("StoreKeepers")

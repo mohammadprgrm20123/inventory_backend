@@ -5,7 +5,16 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 
-var builder = WebApplication.CreateBuilder(args);
+var config = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddEnvironmentVariables()
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .Build();
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    EnvironmentName = config.GetValue<string>("environment")
+});
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
@@ -18,7 +27,6 @@ var connectionString =
         .Configuration
         .GetValue<string>("connectionString");
 
-Accounting.Migrations.WebApiMigration.Main(connectionString);
 builder
     .Services
     .RegisterMessageDispatcher()
