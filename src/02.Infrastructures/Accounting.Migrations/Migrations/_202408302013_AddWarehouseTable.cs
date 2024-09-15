@@ -11,7 +11,7 @@ namespace Accounting.Migrations.Migrations
             Create.Table("Warehouses")
                 .WithColumn("Id").AsCustom("VARCHAR(100)").PrimaryKey().NotNullable()
                 .WithColumn("Name").AsCustom("NVARCHAR(100)").NotNullable()
-                .WithColumn("Code").AsCustom("VARCHAR(10)").NotNullable()
+                .WithColumn("Code").AsCustom("NVARCHAR(10)").NotNullable()
                 .WithColumn("ProvinceId").AsInt32().NotNullable()
                 .WithColumn("CityId").AsInt32().NotNullable()
                 .WithColumn("Address").AsString(1000).NotNullable()
