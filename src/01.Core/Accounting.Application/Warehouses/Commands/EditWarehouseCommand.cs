@@ -11,4 +11,4 @@ public record EditWarehouseCommand(
     string? ImageId,
     IEnumerable<StoreKeeperDto> StoreKeepers);
     
-public record StoreKeeperDto(string FullName, Phone Phone);
+public record StoreKeeperDto(string FullName, Phone? Phone);

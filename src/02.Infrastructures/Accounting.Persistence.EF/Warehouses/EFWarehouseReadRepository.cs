@@ -36,6 +36,7 @@ namespace Accounting.Persistence.EF.Warehouses
                     q.Address,
                     q.ProvinceId,
                     q.CityId,
+                    q.IsDefault,
                     q.ImageId,
                     q.StoreKeepers
                         .Select(s => new StoreKeeperViewModel(

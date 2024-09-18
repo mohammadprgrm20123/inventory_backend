@@ -6,7 +6,7 @@ public class StoreKeeper
 {
     public int Id { get; private set; }
     public string FullName { get; private set; }
-    public Phone Phone { get; private set; }
+    public Phone? Phone { get; private set; }
     public string WarehouseId { get; private set; }
     public Warehouse Warehouse { get; private set; }
 

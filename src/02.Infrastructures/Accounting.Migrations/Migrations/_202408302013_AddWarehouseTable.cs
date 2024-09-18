@@ -21,8 +21,8 @@ namespace Accounting.Migrations.Migrations
             Create.Table("StoreKeepers")
                 .WithColumn("Id").AsInt32().Identity().NotNullable()
                 .WithColumn("FullName").AsString(450).NotNullable()
-                .WithColumn("CountryCallingCode").AsCustom("VARCHAR(5)")
-                .WithColumn("PhoneNumber").AsCustom("VARCHAR(15)").NotNullable()
+                .WithColumn("CountryCallingCode").AsCustom("VARCHAR(5)").Nullable()
+                .WithColumn("PhoneNumber").AsCustom("VARCHAR(15)").Nullable()
                 .WithColumn("WarehouseId").AsCustom("VARCHAR(100)").NotNullable()
                 .ForeignKey("FK_StoreKeepers_Warehouses", "Warehouses", "Id")
                 .OnDelete(Rule.Cascade);

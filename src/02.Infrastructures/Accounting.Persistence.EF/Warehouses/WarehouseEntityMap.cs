@@ -29,8 +29,8 @@ namespace Accounting.Persistence.EF.Warehouses
 
             builder.OwnsOne(q => q.Phone, p =>
             {
-                p.Property(v => v.CountryCallingCode).IsRequired().HasColumnName("CountryCallingCode");
-                p.Property(v => v.PhoneNumber).IsRequired().HasColumnName("PhoneNumber");
+                p.Property(v => v.CountryCallingCode).IsRequired(false).HasColumnName("CountryCallingCode");
+                p.Property(v => v.PhoneNumber).IsRequired(false).HasColumnName("PhoneNumber");
             });
 
             builder

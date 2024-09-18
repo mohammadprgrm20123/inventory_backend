@@ -8,6 +8,7 @@ namespace Accounting.Domain.Warehouses.Repositories.ViewModels
         string Address,
         int ProvinceId,
         int CityId,
+        bool IsDefault,
         string? ImageId,
         IEnumerable<StoreKeeperViewModel> StoreKeepers);
 }
