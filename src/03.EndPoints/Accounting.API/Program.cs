@@ -44,9 +44,6 @@ builder
     .RegisterHangfire(connectionString!)
     .RegisterDbContext(connectionString!);
 
-// builder.Services.AddAuthentication()
-//     .AddCookie(IdentityConstants.ApplicationScheme)
-//     .AddBearerToken(IdentityConstants.BearerScheme);
 builder.Services.AddAuthorization();
 
 builder.Services.AddIdentityApiEndpoints<IdentityUser>()
