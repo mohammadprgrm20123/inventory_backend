@@ -4,6 +4,7 @@ using Accounting.Domain.Warehouses.Repositories.ViewModels;
 using ErrorOr;
 using Framework.Domain;
 using Framework.Domain.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Accounting.API.Controllers
