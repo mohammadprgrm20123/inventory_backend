@@ -7,6 +7,8 @@ namespace Accounting.Domain.Warehouses.Repositories
     {
         void Add(Warehouse warehouse);
         void Update(Warehouse warehouse);
+        Task DeleteWarehouse(string warehouseId);
+        Task<bool> IsExist(string warehouseId);
         Task<Warehouse?> FindWithStoreKeepers(string Id);
         Task<Warehouse?> FindWarehouse(string id);
         Task<Warehouse> FindAggregate(string id);

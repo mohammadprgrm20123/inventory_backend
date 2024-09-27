@@ -52,6 +52,21 @@ namespace Accounting.API.Controllers
                 e => BadRequest(result.FirstError.Description));
         }
 
+        [HttpDelete("{warehouseId}")]
+        public async Task<IActionResult> DeleteWarehouse(
+            [FromServices]
+            ICommandHandler<DeleteWarehouseCommand, string> handler,
+            [FromRoute] string warehouseId)
+        {
+            var result =
+                await handler
+                    .Handle(new DeleteWarehouseCommand(warehouseId));
+
+            return result.Match<IActionResult>(
+                s => Ok(result.Value),
+                e => BadRequest(result.FirstError.Description));
+        }
+
         [HttpGet]
         public async Task<IEnumerable<GetAllWarehouseViewModel>> GetAll(
             [FromServices] WarehouseReadRepository repository,
