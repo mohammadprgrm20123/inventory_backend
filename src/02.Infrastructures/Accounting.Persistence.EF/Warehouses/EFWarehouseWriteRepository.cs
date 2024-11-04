@@ -21,11 +21,25 @@ namespace Accounting.Persistence.EF.Warehouses
             RaiseEvent(warehouse);
         }
 
+        public async Task DeleteWarehouse(string warehouseId)
+        {
+            await context.Set<Warehouse>()
+                .Where(q => q.Id == warehouseId)
+                .ExecuteDeleteAsync();
+        }
+
+        public async Task<bool> IsExist(string warehouseId)
+        {
+            return await context
+                .Set<Warehouse>()
+                .AnyAsync(q => q.Id == warehouseId);
+        }
+
         public async Task<Warehouse?> FindWithStoreKeepers(string Id)
         {
             return await context
                 .Set<Warehouse>()
-                .Include(q=>q.StoreKeepers)
+                .Include(q => q.StoreKeepers)
                 .FirstOrDefaultAsync(q => q.Id == Id);
         }
 

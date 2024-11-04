@@ -4,6 +4,7 @@ using Accounting.Domain.Warehouses.Repositories.ViewModels;
 using ErrorOr;
 using Framework.Domain;
 using Framework.Domain.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Accounting.API.Controllers
@@ -45,6 +46,21 @@ namespace Accounting.API.Controllers
             [FromBody] EditWarehouseCommand command)
         {
             var result = await handler.Handle(command);
+
+            return result.Match<IActionResult>(
+                s => Ok(result.Value),
+                e => BadRequest(result.FirstError.Description));
+        }
+
+        [HttpDelete("{warehouseId}")]
+        public async Task<IActionResult> DeleteWarehouse(
+            [FromServices]
+            ICommandHandler<DeleteWarehouseCommand, string> handler,
+            [FromRoute] string warehouseId)
+        {
+            var result =
+                await handler
+                    .Handle(new DeleteWarehouseCommand(warehouseId));
 
             return result.Match<IActionResult>(
                 s => Ok(result.Value),
